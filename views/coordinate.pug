@@ -1,0 +1,44 @@
+html
+ include header.pug
+ body
+  h1 My first page
+  form(method='POST' action='/coordinate')
+   div.form-group
+    label(for='first_name') Prenom:
+    input#first_name.form-control(type='text' placeholder='George' name='first_name' value=first_name)
+    if errors.first_name
+     div.alert.alert-danger #{errors.first_name}
+   div.form-group
+    label(for='last_name') Nom:
+    input#last_name.form-control(type='text' placeholder='Dupont' name='last_name' value=last_name)
+    if errors.last_name
+      div.alert.alert-danger #{errors.last_name}
+   div.form-group
+    label(for='age') Mois:
+    select#years(name="month")
+      option(value='1') Janvier
+      option(value='2') Février
+      option(value='3') Mars
+      option(value='4') Avril
+      option(value='5') Mai
+      option(value='6') Juin
+      option(value='7') Juillet
+      option(value='8') Aout
+      option(value='9') Septembre
+      option(value='10') Octobre
+      option(value='11') Novembre
+      option(value='12') Décembre
+    div.form-group
+      label(for='age') Années:
+      select#years(name="years")
+         option(value='2000') 2000
+         option(value='2016') 2016
+         option(value='1990') 1990
+    if errors.age
+      div.alert.alert-danger #{errors.age}
+   div.form-group
+    label(for='adress') Adresse:
+    textarea#adress.form-control(type='text' placeholder='Dupont' name='adress') #{adress}
+    if errors.adress
+     div.alert.alert-danger #{errors.adress}
+   button.btn.btn-primary(type='submit') Page suivante
